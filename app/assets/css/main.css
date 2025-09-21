@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+
+  --breakpoint-3xl: 1920px;
+
+  --color-green-50: #EFFDF5;
+  --color-green-100: #D9FBE8;
+  --color-green-200: #B3F5D1;
+  --color-green-300: #75EDAE;
+  --color-green-400: #00DC82;
+  --color-green-500: #00C16A;
+  --color-green-600: #00A155;
+  --color-green-700: #007F45;
+  --color-green-800: #016538;
+  --color-green-900: #0A5331;
+  --color-green-950: #052E16;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+
+}
+
+.wwads-horizontal, .wwads-vertical{
+    margin-top: 0!important;
+}
+
+.wwads-cn .wwads-horizontal{
+    border-radius: 30px!important;
+}
+
+html.dark .wwads-cn{
+    color: var(--color-text-2)!important;
+    background-color: rgb(var(--color-gray-800) / var(--tw-bg-opacity))!important;
+}
+
+html.dark .wwads-text{
+    color: rgb(var(--color-text-2)/ var(--tw-text-opacity))!important;
+}
+
+html.dark .v-md-textarea-editor textarea{
+    background-color: rgb(var(--color-gray-900) / 0.9);
+}
+
+html.dark .toc-list .toc-link{
+    color: rgb(var(--color-text-2) / var(--tw-text-opacity))!important;
+}
+
+h1{
+    color: var(--color-text-1);
+}
+
+p{
+    color:var(--color-text-2);
+}
+
+@media (min-width: 576px) {
+    .container, .container-sm {
+        max-width: 540px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .container, .container-md, .container-sm {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container, .container-lg, .container-md, .container-sm {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1140px;
+    }
+}
+
+/** 代码自动换行 */
+code{
+    word-break:break-all;
+}
+
+/*::-webkit-scrollbar {*/
+/*    background: linear-gradient(#05f,#ff7491,#dc3545);*/
+/*    width: 0.35rem;*/
+/*    height: 0.8rem*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*    background-color: #90a1ad*/
+/*}*/
