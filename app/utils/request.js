@@ -237,15 +237,40 @@ const instance = new HttpClient('/api_v1', { timeout: 10000 });
 
 // 添加响应拦截器，保持原有的业务逻辑
 instance.addResponseInterceptor(
-  function (response) {
-    // 这里需要先解析响应体才能检查 flag
-    return response.json().then(data => {
-      // 后台响应失败或者未知返回
-      if (typeof data.flag === 'undefined' || data.flag === false) {
-        return Promise.reject({ data, status: response.status });
+  async function (response) {
+    // 检查响应是否成功
+    if (!response.ok) {
+      return response; // 让 handleResponse 处理错误
+    }
+    
+    // 克隆响应以避免消耗原始流
+    const clonedResponse = response.clone();
+    
+    try {
+      const contentType = response.headers.get('content-type');
+      if (contentType?.includes('application/json')) {
+        const data = await clonedResponse.json();
+        
+        // 后台响应失败或者未知返回
+        if (typeof data.flag === 'undefined' || data.flag === false) {
+          // 创建一个错误响应
+          const errorResponse = new Response(
+            JSON.stringify({ data, status: response.status }), 
+            {
+              status: 400,
+              statusText: 'Business Logic Error',
+              headers: response.headers
+            }
+          );
+          return errorResponse;
+        }
       }
-      return Promise.resolve(data);
-    });
+    } catch (e) {
+      // 如果解析失败，返回原始响应
+      console.warn('响应拦截器解析失败:', e);
+    }
+    
+    return response;
   },
   function (error) {
     // 对响应错误做点什么

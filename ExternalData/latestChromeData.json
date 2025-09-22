@@ -1,0 +1,78 @@
+{
+  "Windows": {
+    "v140.0.7339.186_x64": {
+      "tag": "Windows 正式版 / 稳定版 64 位",
+      "link": "https://www.google.com/dl/release2/chrome/ace5n5burktbjc42egridew7sbhq_140.0.7339.186/140.0.7339.186_chrome_installer_uncompressed.exe",
+      "sha": "86346A87FF79799882D0331E591A1C716BB99652"
+    },
+    "v140.0.7339.186": {
+      "tag": "Windows 正式版 / 稳定版 32 位",
+      "link": "https://www.google.com/dl/release2/chrome/acba5jroii57hcxkaoob7ihfw6za_140.0.7339.186/140.0.7339.186_chrome_installer_uncompressed.exe",
+      "sha": "21EB45EEBB9062AC221115572167744C93D50FDD"
+    },
+    "v141.0.7390.30_x64": {
+      "tag": "Windows 测试版 64 位",
+      "link": "https://www.google.com/dl/release2/chrome/ade3kqv3rix2qas7serp4ckjbdla_141.0.7390.30/141.0.7390.30_chrome_installer_uncompressed.exe",
+      "sha": "9AADD94BFD29EA8B5AAF717A2D79C3910B9C0708"
+    },
+    "v141.0.7390.30": {
+      "tag": "Windows 测试版 32 位",
+      "link": "https://www.google.com/dl/release2/chrome/l5w4vusmac4taozc3eqc37uejq_141.0.7390.30/141.0.7390.30_chrome_installer_uncompressed.exe",
+      "sha": "EB812FF9995D39614E7F3219CCA4254722DC320D"
+    },
+    "v142.0.7420.2_x64": {
+      "tag": "Windows 开发版 64 位",
+      "link": "https://www.google.com/dl/release2/chrome/gbdcktvelel3b2rkugryp7zdly_142.0.7420.2/142.0.7420.2_chrome_installer_uncompressed.exe",
+      "sha": "A16AA867ED47C2AED545168741D4A8EDF2CD49D2"
+    },
+    "v142.0.7420.2": {
+      "tag": "Windows 开发版 32 位",
+      "link": "https://www.google.com/dl/release2/chrome/pps55wnfrlkhzy2rbktszypsf4_142.0.7420.2/142.0.7420.2_chrome_installer_uncompressed.exe",
+      "sha": "AA625859BC0F69C53B6996A86F72E2E917D64F9D"
+    },
+    "v142.0.7425.0_x64": {
+      "tag": "Windows 金丝雀版 64 位",
+      "link": "https://www.google.com/dl/release2/chrome/acqamts4fp6xx4ytucxd3xlwvh6q_142.0.7425.0/142.0.7425.0_chrome_installer_uncompressed.exe",
+      "sha": "FACA63EF9F27ED4E8FC2D157BC92722A98E55B7A"
+    },
+    "v142.0.7425.0": {
+      "tag": "Windows 金丝雀版 32 位",
+      "link": "https://www.google.com/dl/release2/chrome/adir75ajcfuio6k3jlogmzxpaseq_142.0.7425.0/142.0.7425.0_chrome_installer_uncompressed.exe",
+      "sha": "3B2663ED89718F7777DE3EFA68AEF82253CB1096"
+    }
+  },
+  "Windows7": {
+    "v109.0.5414.120_x64": {
+      "tag": "Win7/8 开发版 64 位",
+      "link": "https://www.google.com/dl/release2/chrome/czao2hrvpk5wgqrkz4kks5r734_109.0.5414.120/109.0.5414.120_chrome_installer.exe",
+      "sha": "AB09D7E36DF282897E9C8CD7E2402D70CB783956"
+    },
+    "v109.0.5414.120": {
+      "tag": "Win7/8 开发版 32 位",
+      "link": "https://www.google.com/dl/release2/chrome/acihtkcueyye3ymoj2afvv7ulzxa_109.0.5414.120/109.0.5414.120_chrome_installer.exe",
+      "sha": "3EA194B328B60259975B19E4CC6CB87ACEE7E3C4"
+    }
+  },
+  "macOS": {
+    "v140.0.7339.186": {
+      "tag": "macOS 正式版 / 稳定版",
+      "link": "https://www.google.com/dl/release2/chrome/acyk4e3hewde2niid4gmhjus7t7q_140.0.7339.186/GoogleChrome-140.0.7339.186.dmg",
+      "sha": "DDC48C50BF96157A7907BD8E3FCA224DCA574608"
+    },
+    "v141.0.7390.30": {
+      "tag": "macOS 测试版",
+      "link": "https://www.google.com/dl/release2/chrome/naqibsitogt2sl34wmy3fypnii_141.0.7390.30/GoogleChromeBeta-141.0.7390.30.dmg",
+      "sha": "913FE84672E7E390DC15A7CA1F4FD2A3E1629487"
+    },
+    "v142.0.7420.2": {
+      "tag": "macOS 开发版",
+      "link": "https://www.google.com/dl/release2/chrome/krgydtxgb6icxvghyzmwmg2xjy_142.0.7420.2/GoogleChromeDev-142.0.7420.2.dmg",
+      "sha": "E544F63BFD74B44272E808F4B18AEF7E1FA19F67"
+    },
+    "v142.0.7426.0": {
+      "tag": "macOS 金丝雀版",
+      "link": "https://www.google.com/dl/release2/chrome/acxbheswgirjintvljmkghkbb2ta_142.0.7426.0/GoogleChromeCanary-142.0.7426.0.dmg",
+      "sha": "0AE024B3079439972D2F6812AC79E74FD241E8A7"
+    }
+  }
+}

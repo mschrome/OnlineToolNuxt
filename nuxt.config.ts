@@ -10,5 +10,23 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/content',
     '@nuxt/scripts'
-  ]
+  ],
+  ui: {
+    fonts: false,
+  },
+
+  nitro: {
+    devProxy: {
+      '/api_v1': {
+        target: 'http://127.0.0.1:8083/',
+        prependPath: true,
+        changeOrigin: true,
+      },
+      '/ghs': {
+        target: 'https://gh.flyinbug.top/gh/',
+        prependPath: false,
+        changeOrigin: true,
+      }
+    },
+  },
 })

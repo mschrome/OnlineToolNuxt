@@ -5,16 +5,15 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
-            <NuxtLink to="/" class="flex-shrink-0 flex items-center group">
-              <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                </svg>
-              </div>
-              <h1 class="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
-                在线工具箱
-              </h1>
+          <div class="flex items-center gap-3">
+            <NuxtLink
+                to="/"
+                class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white"
+            >
+              <span class="sm:block text-lg sm:text-xl">Mintimate</span>
+              <span class="text-lg sm:text-xl text-primary-400">在线工具箱</span>
             </NuxtLink>
+          </div>
           </div>
           
           <!-- 导航菜单 -->
