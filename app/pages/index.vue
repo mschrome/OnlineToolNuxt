@@ -70,7 +70,7 @@
         <div class="guide-grid">
           <div class="guide-item">
             <div class="guide-icon terminal-icon">
-              <UIcon name="i-heroicons-terminal" />
+              <UIcon name="i-heroicons-command-line" />
             </div>
             <div class="guide-content">
               <h4 class="guide-item-title">终端查询</h4>

@@ -246,7 +246,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-white/20 dark:border-slate-700/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
-            <UIcon name="i-heroicons-lightning-bolt" class="text-2xl text-blue-600 dark:text-blue-400" />
+            <UIcon name="i-heroicons-bolt-16-solid" class="text-2xl text-blue-600 dark:text-blue-400" />
           </div>
           <h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-2">实时统计</h3>
           <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">

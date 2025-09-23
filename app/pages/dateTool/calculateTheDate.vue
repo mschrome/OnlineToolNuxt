@@ -173,7 +173,7 @@
 
         <div class="info-card">
           <div class="info-icon calc-icon">
-            <UIcon name="i-lucide-plus-minus" />
+            <UIcon name="i-heroicons-squares-plus-16-solid" />
           </div>
           <div class="info-content">
             <h3 class="info-title">日期加减</h3>
