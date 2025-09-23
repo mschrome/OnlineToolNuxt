@@ -14,7 +14,6 @@ $:
         # 环境启动后需要执行的命令
         - name: 安装 yarn 相关依赖
           script: 
-            - cd WebUI
             - yarn
 # WebIDE 修改不出发流水线
 .skip_project: &skip_project
@@ -38,7 +37,7 @@ main:
             - docker login -u ${CNB_TOKEN_USER_NAME} -p "${CNB_TOKEN}" ${CNB_DOCKER_REGISTRY}
         - name: Docker 构建
           script:
-            - docker build -t ${LATEST_CURRENT_VERSION} -t ${LATEST_VERSION} WebUI
+            - docker build -t ${LATEST_CURRENT_VERSION} -t ${LATEST_VERSION} .
         - name: Docker 推送
           script:
             - docker push ${LATEST_CURRENT_VERSION}
