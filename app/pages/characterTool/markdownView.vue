@@ -592,7 +592,7 @@ onMounted(async () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tool-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -608,7 +608,7 @@ onMounted(async () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .mode-switch-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -637,7 +637,7 @@ onMounted(async () => {
   background: rgba(59, 130, 246, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .mode-label {
     color: rgb(148, 163, 184);
   }
@@ -653,7 +653,7 @@ onMounted(async () => {
   font-size: 0.875rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .mode-description {
     color: rgb(148, 163, 184);
   }
@@ -715,7 +715,7 @@ onMounted(async () => {
   overflow-y: auto;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .toc-container {
     background: rgb(51, 65, 85);
     border-color: rgba(71, 85, 105, 0.5);
@@ -732,7 +732,7 @@ onMounted(async () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .toc-header {
     color: white;
     border-bottom-color: rgba(71, 85, 105, 0.5);
@@ -765,7 +765,7 @@ onMounted(async () => {
   background: rgba(59, 130, 246, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .toc-link {
     color: rgb(148, 163, 184);
   }
@@ -800,7 +800,7 @@ onMounted(async () => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .editor-title, .preview-title {
     color: white;
   }
@@ -814,7 +814,7 @@ onMounted(async () => {
   border-radius: 0.375rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .char-count, .word-count {
     color: rgb(148, 163, 184);
     background: rgb(51, 65, 85);
@@ -847,7 +847,7 @@ onMounted(async () => {
   overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .preview-container {
     background: rgb(51, 65, 85);
     border-color: rgba(71, 85, 105, 0.5);
@@ -897,7 +897,7 @@ onMounted(async () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -935,7 +935,7 @@ onMounted(async () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -947,7 +947,7 @@ onMounted(async () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -974,7 +974,7 @@ onMounted(async () => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-list {
     color: rgb(148, 163, 184);
   }
@@ -993,7 +993,7 @@ onMounted(async () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -1020,7 +1020,7 @@ onMounted(async () => {
   height: auto;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .mermaid-container {
     background: transparent !important;
     border-color: rgba(71, 85, 105, 0.5);
@@ -1213,7 +1213,7 @@ onMounted(async () => {
 }
 
 /* 暗色模式 */
-@media (prefers-color-scheme: dark) {
+.dark {
   .markdown-preview {
     color: rgb(226, 232, 240);
   }
@@ -1375,7 +1375,7 @@ onMounted(async () => {
 }
 
 /* 暗色模式下的代码高亮 */
-@media (prefers-color-scheme: dark) {
+.dark {
   .hljs {
     background: rgb(51, 65, 85) !important;
     color: rgb(226, 232, 240) !important;

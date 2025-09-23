@@ -586,7 +586,7 @@ const startReward = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .control-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -602,7 +602,7 @@ const startReward = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -641,7 +641,7 @@ const startReward = () => {
   animation: pulse 2s infinite;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-icon {
     background: rgb(51, 65, 85);
     color: rgb(148, 163, 184);
@@ -670,7 +670,7 @@ const startReward = () => {
   margin-bottom: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-title {
     color: white;
   }
@@ -682,7 +682,7 @@ const startReward = () => {
   margin-bottom: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-description {
     color: rgb(148, 163, 184);
   }
@@ -701,7 +701,7 @@ const startReward = () => {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .progress-text {
     color: rgb(148, 163, 184);
   }
@@ -715,7 +715,7 @@ const startReward = () => {
   overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .progress-bar {
     background: rgb(51, 65, 85);
   }
@@ -755,7 +755,7 @@ const startReward = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -793,7 +793,7 @@ const startReward = () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -805,7 +805,7 @@ const startReward = () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -833,7 +833,7 @@ const startReward = () => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-list {
     color: rgb(148, 163, 184);
   }
@@ -852,7 +852,7 @@ const startReward = () => {
   transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .plugin-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -872,7 +872,7 @@ const startReward = () => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .plugin-title {
     color: white;
   }
@@ -901,7 +901,7 @@ const startReward = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .plugin-item {
     background: rgb(51, 65, 85);
   }
@@ -924,7 +924,7 @@ const startReward = () => {
   text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .plugin-name {
     color: white;
   }
@@ -943,7 +943,7 @@ const startReward = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -1064,7 +1064,7 @@ const startReward = () => {
 }
 
 /* 暗色模式适配 */
-@media (prefers-color-scheme: dark) {
+.dark {
   .github-link {
     background: linear-gradient(135deg, #0d1117 0%, #21262d 100%);
     box-shadow: 0 4px 15px rgba(13, 17, 23, 0.5);

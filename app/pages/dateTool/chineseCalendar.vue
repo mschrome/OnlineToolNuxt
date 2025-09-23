@@ -372,7 +372,7 @@ onMounted(async () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .calendar-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -406,7 +406,7 @@ onMounted(async () => {
   color: rgb(100, 116, 139);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .loading-text {
     color: rgb(148, 163, 184);
   }
@@ -456,7 +456,7 @@ onMounted(async () => {
   color: rgb(75, 85, 99);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .day-number {
     color: rgb(209, 213, 219);
   }
@@ -481,7 +481,7 @@ onMounted(async () => {
   color: rgb(100, 116, 139);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .legend-text {
     color: rgb(148, 163, 184);
   }
@@ -498,7 +498,7 @@ onMounted(async () => {
   font-size: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .legend-normal-day {
     background: rgb(71, 85, 105);
   }
@@ -521,7 +521,7 @@ onMounted(async () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -537,7 +537,7 @@ onMounted(async () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-header {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -567,7 +567,7 @@ onMounted(async () => {
   margin-bottom: 0.25rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -578,7 +578,7 @@ onMounted(async () => {
   font-size: 0.875rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-subtitle {
     color: rgb(148, 163, 184);
   }
@@ -636,7 +636,7 @@ onMounted(async () => {
   margin-bottom: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .detail-title {
     color: white;
   }
@@ -647,7 +647,7 @@ onMounted(async () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .detail-text {
     color: rgb(148, 163, 184);
   }
@@ -658,7 +658,7 @@ onMounted(async () => {
   font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .highlight-text {
     color: rgb(147, 197, 253);
   }
@@ -685,7 +685,7 @@ onMounted(async () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .feature-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -727,7 +727,7 @@ onMounted(async () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .feature-title {
     color: white;
   }
@@ -739,7 +739,7 @@ onMounted(async () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .feature-description {
     color: rgb(148, 163, 184);
   }
@@ -758,7 +758,7 @@ onMounted(async () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

@@ -30,19 +30,22 @@ const items = [
 
 const isDark = computed({
   get() {
-    if (colorMode.preference === 'system') {
-      return 'system';
-    } else if (colorMode.preference === 'dark') {
-      return 'dark';
-    } else {
-      return 'light';
-    }
+    return colorMode.preference;
   },
   set(newValue) {
-    console.log('newValue', newValue);
-    colorMode.preference = newValue === 'dark' ? 'dark' : (newValue === 'system' ? 'system' : 'light');
+    colorMode.preference = newValue;
   },
 });
+
+// 添加一个方法来获取对应的图标
+const getIconForMode = (mode) => {
+  const iconMap = {
+    'system': 'i-heroicons-cog-6-tooth',
+    'dark': 'i-heroicons-moon',
+    'light': 'i-heroicons-sun'
+  };
+  return iconMap[mode] || 'i-heroicons-sun';
+};
 
 </script>
 
@@ -51,11 +54,7 @@ const isDark = computed({
     <UDropdownMenu :items="items" mode="hover" :popper="{ placement: 'bottom-start' }"
                :ui="{ item: { base: 'group flex items-center w-full gap-2'} }">
       <UButton
-          :icon="
-                isDark === 'system' ?
-                'i-heroicons-cog-20-solid' : isDark === 'dark' ?
-                'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'
-            "
+          :icon="getIconForMode(isDark)"
           color="gray"
           variant="ghost"
           aria-label="Theme"

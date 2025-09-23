@@ -396,7 +396,7 @@ const clearSelection = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tool-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -412,7 +412,7 @@ const clearSelection = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -457,7 +457,7 @@ const clearSelection = () => {
   transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-icon {
     background: rgb(51, 65, 85);
     color: rgb(148, 163, 184);
@@ -470,7 +470,7 @@ const clearSelection = () => {
   transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-text {
     color: rgb(148, 163, 184);
   }
@@ -480,7 +480,7 @@ const clearSelection = () => {
   color: rgb(100, 116, 139);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-arrow {
     color: rgb(148, 163, 184);
   }
@@ -519,7 +519,7 @@ const clearSelection = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .selector-header {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -533,7 +533,7 @@ const clearSelection = () => {
   font-size: 1.125rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .selector-title {
     color: white;
   }
@@ -547,7 +547,7 @@ const clearSelection = () => {
   border-radius: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .emoji-count {
     color: rgb(148, 163, 184);
     background: rgb(51, 65, 85);
@@ -568,7 +568,7 @@ const clearSelection = () => {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .emoji-container {
     background: rgb(15, 23, 42);
   }
@@ -635,7 +635,7 @@ const clearSelection = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -673,7 +673,7 @@ const clearSelection = () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -685,7 +685,7 @@ const clearSelection = () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -712,7 +712,7 @@ const clearSelection = () => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-list {
     color: rgb(148, 163, 184);
   }
@@ -731,7 +731,7 @@ const clearSelection = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

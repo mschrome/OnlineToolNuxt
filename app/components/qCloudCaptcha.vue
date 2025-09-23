@@ -582,7 +582,7 @@ defineExpose({
 }
 
 /* ===== 深色模式适配 ===== */
-@media (prefers-color-scheme: dark) {
+.dark {
   .progress-text {
     color: #69c0ff;
   }

@@ -152,7 +152,7 @@ onMounted(() => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .hdr-test-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -170,7 +170,7 @@ onMounted(() => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .test-header {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -184,7 +184,7 @@ onMounted(() => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .test-title {
     color: white;
   }
@@ -199,7 +199,7 @@ onMounted(() => {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .test-status {
     color: rgb(196, 181, 253);
     background: rgba(147, 51, 234, 0.2);
@@ -230,7 +230,7 @@ onMounted(() => {
   border: 2px solid rgba(226, 232, 240, 0.3);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .background {
     border-color: rgba(71, 85, 105, 0.3);
   }
@@ -290,7 +290,7 @@ onMounted(() => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -328,7 +328,7 @@ onMounted(() => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -340,7 +340,7 @@ onMounted(() => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -368,7 +368,7 @@ onMounted(() => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-list {
     color: rgb(148, 163, 184);
   }
@@ -383,7 +383,7 @@ onMounted(() => {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .highlight-text {
     color: rgb(251, 113, 133);
   }
@@ -403,7 +403,7 @@ onMounted(() => {
   text-decoration-color: rgb(37, 99, 235);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-link {
     color: rgb(147, 197, 253);
   }
@@ -423,7 +423,7 @@ onMounted(() => {
   font-size: 0.8125rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .highlight-code {
     background: rgba(244, 114, 182, 0.2);
     color: rgb(244, 114, 182);
@@ -440,7 +440,7 @@ onMounted(() => {
   margin-bottom: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .opensource-section {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -452,7 +452,7 @@ onMounted(() => {
   color: rgb(100, 116, 139);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .sponsor-text {
     color: rgb(148, 163, 184);
   }
@@ -471,7 +471,7 @@ onMounted(() => {
   text-decoration-color: rgb(219, 39, 119);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .sponsor-link {
     color: rgb(244, 114, 182);
   }
@@ -495,7 +495,7 @@ onMounted(() => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

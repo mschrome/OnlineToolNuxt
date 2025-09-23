@@ -163,7 +163,7 @@ function handleClick(emoji) {
 }
 
 /* 深色模式适配 */
-@media (prefers-color-scheme: dark) {
+.dark {
   .emoji-item.available:hover {
     background: rgba(147, 197, 253, 0.1);
   }

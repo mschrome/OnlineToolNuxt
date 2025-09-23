@@ -369,7 +369,7 @@ const copyTheOutPutText = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tool-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -384,7 +384,7 @@ const copyTheOutPutText = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -402,7 +402,7 @@ const copyTheOutPutText = () => {
   font-size: 1.125rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-title {
     color: white;
   }
@@ -451,7 +451,7 @@ const copyTheOutPutText = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .settings-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -472,7 +472,7 @@ const copyTheOutPutText = () => {
   background: rgb(241, 245, 249);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .setting-item {
     background: rgb(51, 65, 85);
   }
@@ -489,7 +489,7 @@ const copyTheOutPutText = () => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .setting-label {
     color: white;
   }
@@ -507,7 +507,7 @@ const copyTheOutPutText = () => {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .setting-text {
     color: rgb(148, 163, 184);
   }
@@ -533,7 +533,7 @@ const copyTheOutPutText = () => {
   font-size: 1.125rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-title {
     color: white;
   }
@@ -549,7 +549,7 @@ const copyTheOutPutText = () => {
   justify-content: center;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-content {
     background: rgb(51, 65, 85);
   }
@@ -569,7 +569,7 @@ const copyTheOutPutText = () => {
   animation: pulse 2s infinite;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-text {
     color: white;
   }
@@ -601,7 +601,7 @@ const copyTheOutPutText = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -639,7 +639,7 @@ const copyTheOutPutText = () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -651,7 +651,7 @@ const copyTheOutPutText = () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -679,7 +679,7 @@ const copyTheOutPutText = () => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-list {
     color: rgb(148, 163, 184);
   }
@@ -698,7 +698,7 @@ const copyTheOutPutText = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

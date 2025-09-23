@@ -388,7 +388,7 @@ const copyCommandTool = () => {
   color: rgb(219 39 119);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .help-link {
     color: rgb(147 197 253);
   }
@@ -423,7 +423,7 @@ const copyCommandTool = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tool-card {
     background: rgb(30 41 59);
     border-color: rgb(71 85 105);
@@ -437,7 +437,7 @@ const copyCommandTool = () => {
   border-bottom: 1px solid rgb(226 232 240);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-section {
     border-bottom-color: rgb(71 85 105);
   }
@@ -458,7 +458,7 @@ const copyCommandTool = () => {
   color: rgb(30 41 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-title {
     color: white;
   }
@@ -479,7 +479,7 @@ const copyCommandTool = () => {
   background: rgb(220 252 231);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-indicator {
     color: rgb(148 163 184);
     background: rgb(71 85 105);
@@ -505,7 +505,7 @@ const copyCommandTool = () => {
   margin-bottom: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .config-title {
     color: white;
   }
@@ -534,7 +534,7 @@ const copyCommandTool = () => {
   background: rgb(248 250 252);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .auth-radio {
     border-color: rgb(75 85 99);
   }
@@ -574,7 +574,7 @@ const copyCommandTool = () => {
   border: 1px solid rgb(226 232 240);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-card {
     background: rgb(30 41 59);
     border-color: rgb(71 85 105);
@@ -596,7 +596,7 @@ const copyCommandTool = () => {
   color: rgb(30 41 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-title {
     color: white;
   }
@@ -610,7 +610,7 @@ const copyCommandTool = () => {
   color: rgb(29 78 216);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .copy-button {
     color: rgb(147 197 253);
   }
@@ -631,7 +631,7 @@ const copyCommandTool = () => {
   border: 1px solid rgb(226 232 240);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-content {
     background: rgb(15 23 42);
     color: rgb(203 213 225);
@@ -665,7 +665,7 @@ const copyCommandTool = () => {
   transform: translateY(-4px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30 41 59);
     border-color: rgb(71 85 105);
@@ -699,7 +699,7 @@ const copyCommandTool = () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -711,7 +711,7 @@ const copyCommandTool = () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148 163 184);
   }

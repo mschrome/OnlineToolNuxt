@@ -312,7 +312,7 @@ onMounted(async () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -351,7 +351,7 @@ onMounted(async () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -363,7 +363,7 @@ onMounted(async () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -381,7 +381,7 @@ onMounted(async () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .section-header {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -418,7 +418,7 @@ onMounted(async () => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .section-title {
     color: white;
   }
@@ -446,7 +446,7 @@ onMounted(async () => {
   border-color: rgba(59, 130, 246, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .download-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -490,7 +490,7 @@ onMounted(async () => {
   color: rgb(59, 130, 246);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .download-link {
     color: white;
   }
@@ -505,7 +505,7 @@ onMounted(async () => {
   color: rgb(100, 116, 139);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .download-version {
     color: rgb(148, 163, 184);
   }
@@ -516,7 +516,7 @@ onMounted(async () => {
   padding-top: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .download-footer {
     border-top-color: rgba(71, 85, 105, 0.5);
   }
@@ -529,7 +529,7 @@ onMounted(async () => {
   word-break: break-all;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .download-sha {
     color: rgb(148, 163, 184);
   }
@@ -549,7 +549,7 @@ onMounted(async () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

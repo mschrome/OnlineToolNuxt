@@ -233,12 +233,10 @@ const copyCommandTool = () => {
 }
 
 /* 深色模式 */
-@media (prefers-color-scheme: dark) {
-  .main-card {
-    background: rgb(30, 41, 59);
-    border-color: rgba(71, 85, 105, 0.5);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  }
+.dark .main-card {
+  background: rgb(30, 41, 59);
+  border-color: rgba(71, 85, 105, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 /* 卡片头部 */
@@ -283,21 +281,19 @@ const copyCommandTool = () => {
   border-color: rgb(147, 197, 253);
 }
 
-@media (prefers-color-scheme: dark) {
-  .ip-label {
-    color: rgb(148, 163, 184);
-  }
-  
-  .ip-value {
-    background: linear-gradient(to right, rgb(51, 65, 85), rgb(71, 85, 105));
-    color: white;
-    border-color: rgb(71, 85, 105);
-  }
-  
-  .ip-value:hover {
-    background: linear-gradient(to right, rgb(71, 85, 105), rgb(100, 116, 139));
-    border-color: rgb(100, 116, 139);
-  }
+.dark .ip-label {
+  color: rgb(148, 163, 184);
+}
+
+.dark .ip-value {
+  background: linear-gradient(to right, rgb(51, 65, 85), rgb(71, 85, 105));
+  color: white;
+  border-color: rgb(71, 85, 105);
+}
+
+.dark .ip-value:hover {
+  background: linear-gradient(to right, rgb(71, 85, 105), rgb(100, 116, 139));
+  border-color: rgb(100, 116, 139);
 }
 
 @media (max-width: 768px) {
@@ -343,18 +339,16 @@ const copyCommandTool = () => {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  .location-tag {
-    background: rgba(6, 78, 59, 0.3);
-    color: rgb(110, 231, 183);
-    border-color: rgb(6, 78, 59);
-  }
-  
-  .isp-tag {
-    background: rgba(30, 58, 138, 0.3);
-    color: rgb(147, 197, 253);
-    border-color: rgb(30, 58, 138);
-  }
+.dark .location-tag {
+  background: rgba(6, 78, 59, 0.3);
+  color: rgb(110, 231, 183);
+  border-color: rgb(6, 78, 59);
+}
+
+.dark .isp-tag {
+  background: rgba(30, 58, 138, 0.3);
+  color: rgb(147, 197, 253);
+  border-color: rgb(30, 58, 138);
 }
 
 /* 操作按钮区域 */
@@ -373,12 +367,10 @@ const copyCommandTool = () => {
   backdrop-filter: blur(10px);
 }
 
-@media (prefers-color-scheme: dark) {
-  .guide-card {
-    background: rgb(30, 41, 59);
-    border-color: rgba(71, 85, 105, 0.5);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-  }
+.dark .guide-card {
+  background: rgb(30, 41, 59);
+  border-color: rgba(71, 85, 105, 0.5);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 .guide-title {
@@ -391,10 +383,8 @@ const copyCommandTool = () => {
   margin-bottom: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  .guide-title {
-    color: white;
-  }
+.dark .guide-title {
+  color: white;
 }
 
 .guide-grid {
@@ -421,14 +411,12 @@ const copyCommandTool = () => {
   background: rgb(241, 245, 249);
 }
 
-@media (prefers-color-scheme: dark) {
-  .guide-item {
-    background: rgba(51, 65, 85, 0.5);
-  }
-  
-  .guide-item:hover {
-    background: rgb(51, 65, 85);
-  }
+.dark .guide-item {
+  background: rgba(51, 65, 85, 0.5);
+}
+
+.dark .guide-item:hover {
+  background: rgb(51, 65, 85);
 }
 
 .guide-icon {
@@ -468,10 +456,8 @@ const copyCommandTool = () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  .guide-item-title {
-    color: white;
-  }
+.dark .guide-item-title {
+  color: white;
 }
 
 .guide-description {
@@ -481,10 +467,8 @@ const copyCommandTool = () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
-  .guide-description {
-    color: rgb(148, 163, 184);
-  }
+.dark .guide-description {
+  color: rgb(148, 163, 184);
 }
 
 /* 命令容器 */
@@ -522,11 +506,9 @@ const copyCommandTool = () => {
   background: rgb(71, 85, 105);
 }
 
-@media (prefers-color-scheme: dark) {
-  .command-container {
-    background: rgb(30, 41, 59);
-    border: 1px solid rgb(71, 85, 105);
-  }
+.dark .command-container {
+  background: rgb(30, 41, 59);
+  border: 1px solid rgb(71, 85, 105);
 }
 
 /* 广告区域 */
@@ -546,11 +528,9 @@ const copyCommandTool = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-  .ad-container {
-    background: rgb(30, 41, 59);
-    border-color: rgba(71, 85, 105, 0.5);
-  }
+.dark .ad-container {
+  background: rgb(30, 41, 59);
+  border-color: rgba(71, 85, 105, 0.5);
 }
 
 .demo-image {

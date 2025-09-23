@@ -497,7 +497,7 @@ const handleReset = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tool-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -512,7 +512,7 @@ const handleReset = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -541,7 +541,7 @@ const handleReset = () => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-title {
     color: white;
   }
@@ -601,7 +601,7 @@ const handleReset = () => {
   margin-bottom: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .server-info-header {
     color: white;
   }
@@ -617,7 +617,7 @@ const handleReset = () => {
   align-items: flex-start;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .server-info-card {
     background: rgb(51, 65, 85);
     border-color: rgba(71, 85, 105, 0.5);
@@ -644,7 +644,7 @@ const handleReset = () => {
   border: 2px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .server-icon {
     border-color: rgba(71, 85, 105, 0.5);
   }
@@ -670,7 +670,7 @@ const handleReset = () => {
   letter-spacing: 0.05em;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .server-title {
     color: rgb(147, 197, 253);
   }
@@ -695,7 +695,7 @@ const handleReset = () => {
   border-bottom: none;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-row {
     border-bottom-color: rgba(71, 85, 105, 0.3);
   }
@@ -715,7 +715,7 @@ const handleReset = () => {
   font-size: 0.875rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-label {
     color: rgb(148, 163, 184);
   }
@@ -726,7 +726,7 @@ const handleReset = () => {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-value {
     color: white;
   }
@@ -744,7 +744,7 @@ const handleReset = () => {
   margin-bottom: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tips-title {
     color: white;
   }
@@ -772,7 +772,7 @@ const handleReset = () => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tips-list {
     color: rgb(148, 163, 184);
   }
@@ -785,7 +785,7 @@ const handleReset = () => {
   text-underline-offset: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .highlight {
     color: rgb(244, 114, 182);
   }
@@ -799,7 +799,7 @@ const handleReset = () => {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .sponsor-link {
     color: rgb(56, 189, 248);
   }
@@ -826,7 +826,7 @@ const handleReset = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -864,7 +864,7 @@ const handleReset = () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -876,7 +876,7 @@ const handleReset = () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -903,7 +903,7 @@ const handleReset = () => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-list {
     color: rgb(148, 163, 184);
   }
@@ -922,7 +922,7 @@ const handleReset = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

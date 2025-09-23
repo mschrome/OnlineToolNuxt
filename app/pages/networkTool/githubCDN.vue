@@ -298,7 +298,7 @@ const isGithubFileURL = (url) => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tool-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -313,7 +313,7 @@ const isGithubFileURL = (url) => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -334,7 +334,7 @@ const isGithubFileURL = (url) => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-title {
     color: white;
   }
@@ -355,7 +355,7 @@ const isGithubFileURL = (url) => {
   background: rgba(59, 130, 246, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-indicator {
     color: rgb(148, 163, 184);
     background: rgb(51, 65, 85);
@@ -382,7 +382,7 @@ const isGithubFileURL = (url) => {
   margin-bottom: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .mode-title {
     color: white;
   }
@@ -425,7 +425,7 @@ const isGithubFileURL = (url) => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -463,7 +463,7 @@ const isGithubFileURL = (url) => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -475,7 +475,7 @@ const isGithubFileURL = (url) => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -503,7 +503,7 @@ const isGithubFileURL = (url) => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-list {
     color: rgb(148, 163, 184);
   }
@@ -530,7 +530,7 @@ const isGithubFileURL = (url) => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .support-list {
     color: rgb(148, 163, 184);
   }
@@ -550,7 +550,7 @@ const isGithubFileURL = (url) => {
   text-decoration-color: rgb(37, 99, 235);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-link {
     color: rgb(147, 197, 253);
   }
@@ -570,7 +570,7 @@ const isGithubFileURL = (url) => {
   font-size: 0.8125rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .highlight-code {
     background: rgba(147, 197, 253, 0.2);
     color: rgb(147, 197, 253);
@@ -586,7 +586,7 @@ const isGithubFileURL = (url) => {
   font-size: 0.8125rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .url-example {
     background: rgba(251, 146, 60, 0.2);
     color: rgb(251, 146, 60);
@@ -603,7 +603,7 @@ const isGithubFileURL = (url) => {
   margin-bottom: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .opensource-section {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -616,7 +616,7 @@ const isGithubFileURL = (url) => {
   margin-bottom: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .opensource-text {
     color: rgb(148, 163, 184);
   }
@@ -634,7 +634,7 @@ const isGithubFileURL = (url) => {
   text-decoration-color: rgb(37, 99, 235);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .opensource-link {
     color: rgb(147, 197, 253);
   }
@@ -649,7 +649,7 @@ const isGithubFileURL = (url) => {
   color: rgb(100, 116, 139);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .sponsor-text {
     color: rgb(148, 163, 184);
   }
@@ -668,7 +668,7 @@ const isGithubFileURL = (url) => {
   text-decoration-color: rgb(219, 39, 119);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .sponsor-link {
     color: rgb(244, 114, 182);
   }
@@ -692,7 +692,7 @@ const isGithubFileURL = (url) => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

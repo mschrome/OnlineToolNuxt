@@ -186,7 +186,7 @@ const clickEmitDownload = (downloadUrl) => {
   overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -213,7 +213,7 @@ const clickEmitDownload = (downloadUrl) => {
   font-size: 0.875rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .loading-text {
     color: rgb(148, 163, 184);
   }
@@ -234,7 +234,7 @@ const clickEmitDownload = (downloadUrl) => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-header {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -248,7 +248,7 @@ const clickEmitDownload = (downloadUrl) => {
   font-size: 1.125rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-title {
     color: white;
   }
@@ -262,7 +262,7 @@ const clickEmitDownload = (downloadUrl) => {
   border-radius: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-count {
     color: rgb(148, 163, 184);
     background: rgb(51, 65, 85);
@@ -294,7 +294,7 @@ const clickEmitDownload = (downloadUrl) => {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-item {
     background: rgb(15, 23, 42);
   }
@@ -345,7 +345,7 @@ const clickEmitDownload = (downloadUrl) => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .loading-header {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -359,7 +359,7 @@ const clickEmitDownload = (downloadUrl) => {
   font-size: 1.125rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .loading-title {
     color: white;
   }
@@ -396,7 +396,7 @@ const clickEmitDownload = (downloadUrl) => {
   margin-bottom: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .empty-icon {
     color: rgb(148, 163, 184);
   }
@@ -409,7 +409,7 @@ const clickEmitDownload = (downloadUrl) => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .empty-title {
     color: white;
   }
@@ -420,7 +420,7 @@ const clickEmitDownload = (downloadUrl) => {
   margin-bottom: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .empty-description {
     color: rgb(148, 163, 184);
   }
@@ -448,7 +448,7 @@ const clickEmitDownload = (downloadUrl) => {
   border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .status-step {
     background: rgb(51, 65, 85);
   }
@@ -485,7 +485,7 @@ const clickEmitDownload = (downloadUrl) => {
   margin-bottom: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .credits-title {
     color: rgb(148, 163, 184);
   }
@@ -546,7 +546,7 @@ const clickEmitDownload = (downloadUrl) => {
   color: rgb(59, 130, 246);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .author-name {
     color: white;
   }

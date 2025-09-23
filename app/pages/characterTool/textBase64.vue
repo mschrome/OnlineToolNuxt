@@ -265,7 +265,7 @@ const swapTexts = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tool-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -281,7 +281,7 @@ const swapTexts = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .mode-switch-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -310,7 +310,7 @@ const swapTexts = () => {
   background: rgba(59, 130, 246, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .mode-label {
     color: rgb(148, 163, 184);
   }
@@ -326,7 +326,7 @@ const swapTexts = () => {
   font-size: 0.875rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .mode-description {
     color: rgb(148, 163, 184);
   }
@@ -367,7 +367,7 @@ const swapTexts = () => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .input-title, .output-title {
     color: white;
   }
@@ -381,7 +381,7 @@ const swapTexts = () => {
   border-radius: 0.375rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .char-count {
     color: rgb(148, 163, 184);
     background: rgb(51, 65, 85);
@@ -457,7 +457,7 @@ const swapTexts = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -495,7 +495,7 @@ const swapTexts = () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -507,7 +507,7 @@ const swapTexts = () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -534,7 +534,7 @@ const swapTexts = () => {
   font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-list {
     color: rgb(148, 163, 184);
   }
@@ -553,7 +553,7 @@ const swapTexts = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

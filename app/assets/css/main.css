@@ -1,24 +1,19 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme static {
-  --font-sans: 'Public Sans', sans-serif;
-
-  --breakpoint-3xl: 1920px;
-
-  --color-green-50: #EFFDF5;
-  --color-green-100: #D9FBE8;
-  --color-green-200: #B3F5D1;
-  --color-green-300: #75EDAE;
-  --color-green-400: #00DC82;
-  --color-green-500: #00C16A;
-  --color-green-600: #00A155;
-  --color-green-700: #007F45;
-  --color-green-800: #016538;
-  --color-green-900: #0A5331;
-  --color-green-950: #052E16;
+:root {
+    --ui-color-primary-50: var(--color-orange-50, oklch(98.2% 0.018 155.826));
+    --ui-color-primary-100: var(--color-orange-100, oklch(96.2% 0.044 156.743));
+    --ui-color-primary-200: var(--color-orange-200, oklch(92.5% 0.084 155.995));
+    --ui-color-primary-300: var(--color-orange-300, oklch(87.1% 0.15 154.449));
+    --ui-color-primary-400: var(--color-orange-400, oklch(79.2% 0.209 151.711));
+    --ui-color-primary-500: var(--color-orange-500, oklch(72.3% 0.219 149.579));
+    --ui-color-primary-600: var(--color-orange-600, oklch(62.7% 0.194 149.214));
+    --ui-color-primary-700: var(--color-orange-700, oklch(52.7% 0.154 150.069));
+    --ui-color-primary-800: var(--color-orange-800, oklch(44.8% 0.119 151.328));
+    --ui-color-primary-900: var(--color-orange-900, oklch(39.3% 0.095 152.535));
+    --ui-color-primary-950: var(--color-orange-950, oklch(26.6% 0.065 152.934));
 }
-
 
 body, html {
     margin: 0;
@@ -34,20 +29,20 @@ body, html {
     border-radius: 30px!important;
 }
 
-html.dark .wwads-cn{
+.dark .wwads-cn{
     color: var(--color-text-2)!important;
     background-color: rgb(var(--color-gray-800) / var(--tw-bg-opacity))!important;
 }
 
-html.dark .wwads-text{
+.dark .wwads-text{
     color: rgb(var(--color-text-2)/ var(--tw-text-opacity))!important;
 }
 
-html.dark .v-md-textarea-editor textarea{
+.dark .v-md-textarea-editor textarea{
     background-color: rgb(var(--color-gray-900) / 0.9);
 }
 
-html.dark .toc-list .toc-link{
+.dark .toc-list .toc-link{
     color: rgb(var(--color-text-2) / var(--tw-text-opacity))!important;
 }
 

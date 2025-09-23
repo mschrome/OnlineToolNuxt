@@ -162,7 +162,7 @@ const downloadImage = (imageUrl) => {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .modal-content {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -203,7 +203,7 @@ const downloadImage = (imageUrl) => {
   transform: scale(1.05);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .preview-container {
     background: rgb(15, 23, 42);
   }
@@ -246,7 +246,7 @@ const downloadImage = (imageUrl) => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .modal-title {
     color: white;
   }
@@ -265,7 +265,7 @@ const downloadImage = (imageUrl) => {
   line-height: 1.5;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .modal-description {
     color: rgb(148, 163, 184);
   }
@@ -279,7 +279,7 @@ const downloadImage = (imageUrl) => {
   margin-bottom: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .modal-hint {
     color: rgb(148, 163, 184);
   }
@@ -308,7 +308,7 @@ const downloadImage = (imageUrl) => {
   color: rgb(100, 116, 139);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .support-text {
     color: rgb(148, 163, 184);
   }
@@ -360,7 +360,7 @@ const downloadImage = (imageUrl) => {
   color: rgb(71, 85, 105);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .secondary-button {
     color: rgb(148, 163, 184);
     border-color: rgba(71, 85, 105, 0.8);

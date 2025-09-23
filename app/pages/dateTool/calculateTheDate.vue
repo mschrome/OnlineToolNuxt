@@ -387,7 +387,7 @@ const calculateWorkdays = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .tool-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -402,7 +402,7 @@ const calculateWorkdays = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .date-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -420,7 +420,7 @@ const calculateWorkdays = () => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .date-title {
     color: white;
   }
@@ -444,7 +444,7 @@ const calculateWorkdays = () => {
   font-size: 0.875rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .date-label {
     color: rgb(148, 163, 184);
   }
@@ -461,7 +461,7 @@ const calculateWorkdays = () => {
   color: rgb(100, 116, 139);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .date-hint {
     color: rgb(148, 163, 184);
   }
@@ -474,7 +474,7 @@ const calculateWorkdays = () => {
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .operation-section {
     border-bottom-color: rgba(71, 85, 105, 0.5);
   }
@@ -492,7 +492,7 @@ const calculateWorkdays = () => {
   color: rgb(30, 41, 59);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .operation-title {
     color: white;
   }
@@ -517,7 +517,7 @@ const calculateWorkdays = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .operation-card {
     background: rgb(51, 65, 85);
     border-color: rgba(71, 85, 105, 0.5);
@@ -531,7 +531,7 @@ const calculateWorkdays = () => {
   margin-bottom: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .operation-card-title {
     color: white;
   }
@@ -593,7 +593,7 @@ const calculateWorkdays = () => {
   text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .operation-description {
     color: rgb(148, 163, 184);
   }
@@ -613,7 +613,7 @@ const calculateWorkdays = () => {
   margin-bottom: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-header {
     color: white;
   }
@@ -654,7 +654,7 @@ const calculateWorkdays = () => {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .result-card {
     background: linear-gradient(135deg, rgb(51, 65, 85) 0%, rgb(30, 41, 59) 100%);
     border-color: rgba(71, 85, 105, 0.5);
@@ -692,7 +692,7 @@ const calculateWorkdays = () => {
   border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   :deep(.result-label) {
     color: rgb(147, 197, 253);
     background: rgba(147, 197, 253, 0.1);
@@ -711,7 +711,7 @@ const calculateWorkdays = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   :deep(.result-value) {
     color: white;
     background: rgba(51, 65, 85, 0.8);
@@ -736,7 +736,7 @@ const calculateWorkdays = () => {
   transform: translateY(-1px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   :deep(.date-highlight) {
     background: rgba(34, 197, 94, 0.2);
     border-color: rgba(34, 197, 94, 0.4);
@@ -761,7 +761,7 @@ const calculateWorkdays = () => {
   transform: scale(1.05);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   :deep(.number-highlight) {
     color: rgb(147, 197, 253);
     background: rgba(147, 197, 253, 0.1);
@@ -780,7 +780,7 @@ const calculateWorkdays = () => {
   animation: shake 0.5s ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   :deep(.result-error) {
     background: rgba(239, 68, 68, 0.15);
     border-color: rgba(239, 68, 68, 0.3);
@@ -826,7 +826,7 @@ const calculateWorkdays = () => {
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-card {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);
@@ -864,7 +864,7 @@ const calculateWorkdays = () => {
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-title {
     color: white;
   }
@@ -876,7 +876,7 @@ const calculateWorkdays = () => {
   line-height: 1.625;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .info-description {
     color: rgb(148, 163, 184);
   }
@@ -895,7 +895,7 @@ const calculateWorkdays = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .ad-container {
     background: rgb(30, 41, 59);
     border-color: rgba(71, 85, 105, 0.5);

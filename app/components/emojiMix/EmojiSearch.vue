@@ -96,7 +96,7 @@ let getRandomEnabledEmoji = () => {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .search-container {
     background: rgba(30, 41, 59, 0.95);
     border-color: rgba(71, 85, 105, 0.5);
@@ -137,7 +137,7 @@ let getRandomEnabledEmoji = () => {
   transform: rotate(180deg);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .random-button {
     color: rgb(148, 163, 184);
   }
