@@ -1,0 +1,45 @@
+$:
+  vscode:
+    - runner:
+        cpus: 16
+      docker:
+        build: .ide/Dockerfile
+        volumes:
+          - node_modules:copy-on-write
+          - /root/.cache:copy-on-write
+      services:
+        - vscode
+        - docker
+      stages:
+        # 环境启动后需要执行的命令
+        - name: 安装 yarn 相关依赖
+          script: 
+            - cd WebUI
+            - yarn
+# WebIDE 修改不出发流水线
+.skip_project: &skip_project
+  ifModify:
+    - "**"
+    - "!(.ide/**)"
+main:
+  push:
+    - name: 构建 Node 包
+      docker: 
+        image: node:22-alpine
+      services: 
+        - docker
+      env:
+        LATEST_VERSION: ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/frontend:latest
+        LATEST_CURRENT_VERSION: ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/frontend:${CNB_COMMIT}
+      <<: *skip_project
+      stages:
+        - name: Docker 登录
+          script:
+            - docker login -u ${CNB_TOKEN_USER_NAME} -p "${CNB_TOKEN}" ${CNB_DOCKER_REGISTRY}
+        - name: Docker 构建
+          script:
+            - docker build -t ${LATEST_CURRENT_VERSION} -t ${LATEST_VERSION} WebUI
+        - name: Docker 推送
+          script:
+            - docker push ${LATEST_CURRENT_VERSION}
+            - docker push ${LATEST_VERSION}
