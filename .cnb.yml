@@ -28,8 +28,8 @@ main:
       services: 
         - docker
       env:
-        LATEST_VERSION: ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/frontend:latest
-        LATEST_CURRENT_VERSION: ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}/frontend:${CNB_COMMIT}
+        LATEST_VERSION: ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}:latest
+        LATEST_CURRENT_VERSION: ${CNB_DOCKER_REGISTRY}/${CNB_REPO_SLUG_LOWERCASE}:${CNB_COMMIT}
       <<: *skip_project
       stages:
         - name: Docker 登录
