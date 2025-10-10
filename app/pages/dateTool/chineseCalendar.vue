@@ -196,21 +196,17 @@ onMounted(async () => {
             >
               <template #day="{ day }">
                 <div class="calendar-day">
-                  <template v-if="getColorByDate(day.toDate('UTC'))">
-                    <UChip 
-                      :show="true" 
-                      :color="getColorByDate(day.toDate('UTC'))" 
-                      size="2xs"
-                      class="day-chip"
-                    >
-                      {{ day.day }}
-                    </UChip>
-                  </template>
-                  <template v-else>
-                    <span class="day-number">
-                      {{ day.day }}
-                    </span>
-                  </template>
+                  <div class="day-content">
+                    <span class="day-number">{{ day.day }}</span>
+                    <div 
+                      v-if="getColorByDate(day.toDate('UTC'))"
+                      class="day-indicator"
+                      :class="{
+                        'indicator-success': getColorByDate(day.toDate('UTC')) === 'success',
+                        'indicator-error': getColorByDate(day.toDate('UTC')) === 'error'
+                      }"
+                    ></div>
+                  </div>
                 </div>
               </template>
             </UCalendar>
@@ -218,11 +214,17 @@ onMounted(async () => {
             <!-- 图例说明 -->
             <div class="legend-section">
               <div class="legend-item">
-                <UChip color="success" size="2xs" :show="true">示例</UChip>
+                <div class="legend-demo">
+                  <span class="legend-day-number">示例</span>
+                  <div class="day-indicator indicator-success"></div>
+                </div>
                 <span class="legend-text">休息日</span>
               </div>
               <div class="legend-item">
-                <UChip color="error" size="2xs" :show="true">示例</UChip>
+                <div class="legend-demo">
+                  <span class="legend-day-number">示例</span>
+                  <div class="day-indicator indicator-error"></div>
+                </div>
                 <span class="legend-text">工作日</span>
               </div>
             </div>
@@ -442,18 +444,24 @@ onMounted(async () => {
   min-height: 2.5rem;
 }
 
-.day-chip {
+.day-content {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0.25rem;
 }
 
 .day-number {
   font-size: 0.875rem;
   font-weight: 500;
   color: rgb(75, 85, 99);
+  z-index: 2;
+  position: relative;
+  margin-bottom: 0.125rem;
 }
 
 .dark {
@@ -462,45 +470,194 @@ onMounted(async () => {
   }
 }
 
+.day-indicator {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 0.25rem;
+  border-radius: 0.125rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.dark {
+  .day-indicator {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.indicator-success {
+  background: linear-gradient(90deg, 
+    rgba(34, 197, 94, 0.6) 0%, 
+    rgba(16, 185, 129, 0.7) 50%, 
+    rgba(34, 197, 94, 0.6) 100%
+  );
+  box-shadow: 0 2px 4px rgba(34, 197, 94, 0.3);
+}
+
+.dark {
+  .indicator-success {
+    background: linear-gradient(90deg, 
+      rgba(34, 197, 94, 0.8) 0%, 
+      rgba(16, 185, 129, 0.9) 50%, 
+      rgba(34, 197, 94, 0.8) 100%
+    );
+    box-shadow: 0 2px 4px rgba(34, 197, 94, 0.5);
+  }
+}
+
+.indicator-error {
+  background: linear-gradient(90deg, 
+    rgba(239, 68, 68, 0.6) 0%, 
+    rgba(220, 38, 38, 0.7) 50%, 
+    rgba(239, 68, 68, 0.6) 100%
+  );
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+}
+
+.dark {
+  .indicator-error {
+    background: linear-gradient(90deg, 
+      rgba(239, 68, 68, 0.8) 0%, 
+      rgba(220, 38, 38, 0.9) 50%, 
+      rgba(239, 68, 68, 0.8) 100%
+    );
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.5);
+  }
+}
+
+.day-content:hover .day-indicator {
+  width: 90%;
+  height: 0.3rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+  .day-content:hover .day-indicator {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+}
+
 /* 图例说明 */
 .legend-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   font-size: 0.875rem;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+}
+
+.legend-demo {
+  position: relative;
+  width: 2.5rem;
+  height: 2rem;
+  background: rgb(248, 250, 252);
+  border-radius: 0.375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 0.25rem;
+}
+
+.dark {
+  .legend-demo {
+    background: rgb(71, 85, 105);
+    border-color: rgba(100, 116, 139, 0.5);
+  }
+}
+
+.legend-day-number {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgb(75, 85, 99);
+  margin-bottom: 0.125rem;
+  z-index: 2;
+}
+
+.dark {
+  .legend-day-number {
+    color: rgb(209, 213, 219);
+  }
+}
+
+.legend-demo .day-indicator {
+  position: absolute;
+  bottom: 0.125rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 0.1875rem;
+  border-radius: 0.125rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark {
+  .legend-demo .day-indicator {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.legend-demo .indicator-success {
+  background: linear-gradient(90deg, 
+    rgba(34, 197, 94, 0.6) 0%, 
+    rgba(16, 185, 129, 0.7) 50%, 
+    rgba(34, 197, 94, 0.6) 100%
+  );
+  box-shadow: 0 1px 2px rgba(34, 197, 94, 0.3);
+}
+
+.dark {
+  .legend-demo .indicator-success {
+    background: linear-gradient(90deg, 
+      rgba(34, 197, 94, 0.8) 0%, 
+      rgba(16, 185, 129, 0.9) 50%, 
+      rgba(34, 197, 94, 0.8) 100%
+    );
+    box-shadow: 0 1px 2px rgba(34, 197, 94, 0.5);
+  }
+}
+
+.legend-demo .indicator-error {
+  background: linear-gradient(90deg, 
+    rgba(239, 68, 68, 0.6) 0%, 
+    rgba(220, 38, 38, 0.7) 50%, 
+    rgba(239, 68, 68, 0.6) 100%
+  );
+  box-shadow: 0 1px 2px rgba(239, 68, 68, 0.3);
+}
+
+.dark {
+  .legend-demo .indicator-error {
+    background: linear-gradient(90deg, 
+      rgba(239, 68, 68, 0.8) 0%, 
+      rgba(220, 38, 38, 0.9) 50%, 
+      rgba(239, 68, 68, 0.8) 100%
+    );
+    box-shadow: 0 1px 2px rgba(239, 68, 68, 0.5);
+  }
 }
 
 .legend-text {
   color: rgb(100, 116, 139);
+  font-weight: 500;
 }
 
 .dark {
   .legend-text {
     color: rgb(148, 163, 184);
-  }
-}
-
-.legend-normal-day {
-  width: 1.5rem;
-  height: 1.5rem;
-  background: rgb(248, 250, 252);
-  border-radius: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-}
-
-.dark {
-  .legend-normal-day {
-    background: rgb(71, 85, 105);
   }
 }
 
