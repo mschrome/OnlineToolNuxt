@@ -5,14 +5,32 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
-          <div class="flex items-center gap-3">
-            <NuxtLink
-                to="/"
-                class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white"
-            >
-              <span class="sm:block text-lg sm:text-xl">Mintimate</span>
-              <span class="text-lg sm:text-xl text-primary-400">在线工具箱</span>
-            </NuxtLink>
+          <div class="flex items-center gap-3 relative">
+            <!-- 粒子特效 Canvas -->
+            <canvas 
+              id="fireworks" 
+            ></canvas>
+            <!-- Logo 区域 - 根据路由状态动态显示 -->
+            <template v-if="route.path === '/'">
+              <!-- 首页状态：纯文字，点击触发烟花特效 -->
+              <div
+                  @click="triggerFireworks"
+                  class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white cursor-pointer duration-200 relative z-10"
+              >
+                <span class="sm:block text-lg sm:text-xl">Mintimate</span>
+                <span class="text-lg sm:text-xl text-primary-400">在线工具箱</span>
+              </div>
+            </template>
+            <template v-else>
+              <!-- 非首页状态：可点击链接，跳转到首页 -->
+              <NuxtLink
+                  to="/"
+                  class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white transition-colors duration-200 relative z-10"
+              >
+                <span class="sm:block text-lg sm:text-xl">Mintimate</span>
+                <span class="text-lg sm:text-xl text-primary-400">在线工具箱</span>
+              </NuxtLink>
+            </template>
           </div>
           </div>
           
@@ -424,6 +442,13 @@ import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 // 移动端菜单状态
 const mobileMenuOpen = ref(false)
 
+// 粒子特效相关变量
+let canvas = null
+let ctx = null
+const launchValue = {}
+const particles = []
+let animationId = null
+
 // 工具总数计算
 const totalToolsCount = computed(() => {
   // 计算所有工具的总数
@@ -434,6 +459,163 @@ const totalToolsCount = computed(() => {
   return textTools + networkTools + generateTools + mediaTools
 })
 
+// 设置随机颜色
+const setupColors = () => {
+  return {
+    hue: Math.floor(Math.random() * 360),
+    brightness: Math.floor(Math.random() * 50) + 50,
+    alpha: Math.random() * 0.8 + 0.2
+  }
+}
+
+// 清空画布
+const clearCanvas = () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+}
+
+// 生成发射粒子
+const initLaunch = () => {
+  // 初始坐标
+  launchValue.x = 0
+  launchValue.y = 50
+  
+  // 初始移动速度
+  launchValue.vx = 4
+  launchValue.vy = 2
+  
+  // 初始大小
+  launchValue.radius = 2
+  
+  // 设置随机颜色
+  const colorValue = setupColors()
+  launchValue.color = `hsla(${colorValue.hue},100%,${colorValue.brightness}%,${colorValue.alpha})`
+}
+
+// 发射拖尾动画
+const drawLaunch = () => {
+  // 清空画布
+  clearCanvas()
+  
+  // 开始绘制canvas
+  ctx.beginPath()
+  ctx.fillStyle = launchValue.color
+  ctx.arc(launchValue.x, launchValue.y, launchValue.radius, 0, Math.PI * 2, true)
+  ctx.fill()
+  ctx.closePath()
+
+  // 给予粒子y轴负加速度，形成抛物线
+  launchValue.vy -= 0.03
+  
+  // 根据粒子移动速度，计算当前粒子所在位置
+  launchValue.x += launchValue.vx
+  launchValue.y -= launchValue.vy
+
+  // 粒子到达指定位置前，循环绘制粒子
+  if (launchValue.x < 170) {
+    animationId = window.requestAnimationFrame(drawLaunch)
+  } else {
+    // 生成烟花粒子
+    initFire()
+    // 烟花爆炸
+    drawFireworks()
+  }
+}
+
+// 初始化烟花粒子
+const initFire = () => {
+  // 清空之前的粒子
+  particles.length = 0
+  
+  // 产生120个烟花碎片
+  const scope = 120
+  for (let i = 0; i < scope; i++) {
+    // 设置角度
+    const angle = (360 / scope) * i
+    // 设置弧度
+    const radians = (angle * Math.PI) / 180
+    // 声明粒子对象
+    const p = {}
+    // 初始化粒子属性
+    p.x = launchValue.x
+    p.y = launchValue.y
+    p.radians = radians
+    // 随机大小
+    p.size = 1 + Math.random() * 2
+    // 随机速度
+    p.speed = Math.random() * 5 + 0.4
+    // 随机运动半径
+    p.radius = Math.random() * 41 + 30
+
+    // 随机颜色和透明度
+    const colorValue = setupColors()
+    p.hue = colorValue.hue
+    p.brightness = colorValue.brightness
+    p.alpha = colorValue.alpha
+    
+    // 用处不大，用来方便调控粒子的运动速度
+    p.fx = p.x + Math.cos(radians) * p.radius
+    p.fy = p.y + Math.sin(radians) * p.radius
+
+    // 将生成的粒子对象推入数组
+    particles.push(p)
+  }
+}
+
+// 粒子爆炸动画
+const drawFireworks = () => {
+  // 形成粒子拖尾效果
+  ctx.globalCompositeOperation = 'destination-out'
+  ctx.fillStyle = `rgba(0,0,0,${10 / 100})`
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
+  ctx.globalCompositeOperation = 'lighter'
+
+  // 遍历数组，绘制每一个粒子
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i]
+    // 设置粒子下一帧的x、y轴位置
+    p.x += (p.fx - p.x) / 10
+    // 加入alpha和speed参数，产生粒子逐渐透明且重力下坠效果
+    p.y += (p.fy - p.y) / 10 - (p.alpha - 1) * p.speed
+    // 逐步透明
+    p.alpha -= 0.006
+    // 完全透明后移出数组
+    if (p.alpha <= 0) {
+      particles.splice(i, 1)
+      continue
+    }
+    // 绘制canvas
+    ctx.beginPath()
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2, false)
+    ctx.closePath()
+    ctx.fillStyle = `hsla(${p.hue},100%,${p.brightness}%,${p.alpha})`
+    ctx.fill()
+  }
+  // 除非全部透明，否则持续循环绘制canvas
+  if (particles.length > 0) {
+    animationId = window.requestAnimationFrame(drawFireworks)
+  } else {
+    // 所有粒子都透明后，清空canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+  }
+}
+
+// 触发烟花特效
+const triggerFireworks = () => {
+  if (!canvas || !ctx) return
+  
+  // 停止之前的动画
+  if (animationId) {
+    cancelAnimationFrame(animationId)
+  }
+  
+  // 清空画布
+  clearCanvas()
+  
+  // 初始化并开始发射粒子
+  initLaunch()
+  drawLaunch()
+}
+
 // 监听路由变化，关闭移动端菜单
 const route = useRoute()
 watch(() => route.path, () => {
@@ -442,6 +624,12 @@ watch(() => route.path, () => {
 
 // 点击外部区域关闭菜单
 onMounted(() => {
+  // 初始化 canvas
+  canvas = document.getElementById('fireworks')
+  if (canvas) {
+    ctx = canvas.getContext('2d')
+  }
+  
   const handleClickOutside = (event) => {
     const nav = document.querySelector('nav')
     if (nav && !nav.contains(event.target)) {
@@ -453,6 +641,10 @@ onMounted(() => {
   
   onUnmounted(() => {
     document.removeEventListener('click', handleClickOutside)
+    // 清理动画
+    if (animationId) {
+      cancelAnimationFrame(animationId)
+    }
   })
 })
 </script>
@@ -541,5 +733,20 @@ onMounted(() => {
 
 .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(75, 85, 99, 0.7);
+}
+
+/* 粒子特效 Canvas 样式 */
+#fireworks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Logo 悬停效果 */
+.logo-hover:hover {
+  transform: scale(1.02);
+  transition: all 0.2s ease;
 }
 </style>
