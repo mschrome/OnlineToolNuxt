@@ -504,7 +504,7 @@ const drawLaunch = () => {
   ctx.closePath()
 
   // 给予粒子y轴负加速度，形成抛物线
-  launchValue.vy -= 0.03
+  launchValue.vy -= 0.05
   
   // 根据粒子移动速度，计算当前粒子所在位置
   launchValue.x += launchValue.vx
@@ -738,7 +738,7 @@ onMounted(() => {
 /* 粒子特效 Canvas 样式 */
 #fireworks {
   position: absolute;
-  top: 0;
+  top: -20px;
   left: 0;
   pointer-events: none;
   z-index: 20;
