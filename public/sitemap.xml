@@ -2,68 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    <!-- 主页 -->
     <url>
         <loc>https://tool.mintimate.cn/</loc>
         <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
     </url>
+    
+    <!-- 关于页面 -->
     <url>
-        <loc>https://tool.mintimate.cn/urlMusic</loc>
+        <loc>https://tool.mintimate.cn/about</loc>
         <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
+    
+    <!-- 网络工具 -->
     <url>
-        <loc>https://tool.mintimate.cn/processIMG</loc>
+        <loc>https://tool.mintimate.cn/gh</loc>
         <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/displayHDR</loc>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/statisticsChars</loc>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/generatePWD</loc>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/calculateTheDate</loc>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/zhConvertTradSimp</loc>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/unrestrainedChain</loc>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/randomNumber</loc>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/textBase64</loc>
-        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://tool.mintimate.cn/mcstatus</loc>
         <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://tool.mintimate.cn/gh</loc>
-        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://tool.mintimate.cn/autoBing</loc>
         <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://tool.mintimate.cn/about</loc>
+        <loc>https://tool.mintimate.cn/qCloud/qCloudEdgeOneTokenMaker</loc>
         <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/CrossPlatformChrome</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- 图形工具 -->
+    <url>
+        <loc>https://tool.mintimate.cn/processIMG</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/displayHDR</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- 字符工具 -->
+    <url>
+        <loc>https://tool.mintimate.cn/textBase64</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/statisticsChars</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/zhConvertTradSimp</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/unrestrainedChain</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/emojiMix</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/randomNumber</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://tool.mintimate.cn/mdv</loc>
         <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/generatePWD</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/urlMusic</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- 日期工具 -->
+    <url>
+        <loc>https://tool.mintimate.cn/calculateTheDate</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tool.mintimate.cn/chineseCalendar</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 </urlset>

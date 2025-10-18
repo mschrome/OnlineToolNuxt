@@ -1,29 +1,40 @@
-# robots.txt
+# robots.txt for tool.mintimate.cn
 
-User-agent: * 
-Crawl-delay: 10
+User-agent: *
+Crawl-delay: 5
 
-# Allow critical pages
+# Allow main pages and tools
 Allow: /
+Allow: /about
 Allow: /sitemap.xml
 
-# Disallow other pages
+# Disallow internal tools and API endpoints
 Disallow: /oneindexM
-Disallow: /*Api*
-Disallow: /data
 Disallow: /curl
+Disallow: /404
+Disallow: /*Api*
+Disallow: /api/
+Disallow: /data/
 Disallow: /musicUrl
 
-# Specify sitemaps
-Sitemap: https://tool.mintimate.cn/sitemap.xml 
+# Prevent indexing of redirected or moved pages
+Disallow: /chineseCalendar
 
-# Specify host
-Host: https://tool.mintimate.cn
-
-# Longer crawl delay for new crawlers
-User-agent: NewCrawler 
-Crawl-delay: 20
-
-# Block bad bots
-User-agent: BadBot
+# Block common bot patterns that cause issues
+User-agent: SemrushBot
 Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Specify sitemap location
+Sitemap: https://tool.mintimate.cn/sitemap.xml
+
+# Specify canonical host
+Host: https://tool.mintimate.cn
