@@ -24,8 +24,7 @@
           
           <!-- 验证码区域 -->
           <div class="px-5" :class="{ 'py-3': !showProgress }">
-            <div :id="containerId" class="bg-transparent border-0 flex items-center justify-center w-full captcha-container">
-            </div>
+            <div :id="containerId" class="bg-transparent border-0 flex items-center justify-center w-full captcha-container"></div>
           </div>
           
           <!-- 底部标识 -->
@@ -51,13 +50,13 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, onUnmounted, watch, computed } from 'vue'
+import { ref, nextTick, onUnmounted, watch, computed } from 'vue'
 
 /**
- * 腾讯云天御验证码组件 (全局版本)
+ * 腾讯云天御验证码组件
  * 作者: Mintimate
- * 创建时间: 2025-09-14
- * 描述: 基于官方示例的腾讯云验证码组件
+ * 创建时间: 2025-11-01
+ * 描述: 可复用的腾讯云验证码组件，支持嵌入式验证码
  */
 
 // Props
@@ -77,7 +76,7 @@ const props = defineProps({
   },
   statusText: {
     type: String,
-    default: '请完成安全验证'
+    default: '请完成安全验证...'
   },
   containerId: {
     type: String,
@@ -140,25 +139,15 @@ const captchaCallback = (res) => {
     
     emit('success', {
       ticket: res.ticket,
-      randstr: res.randstr,
-      errorCode: res.errorCode,
-      errorMessage: res.errorMessage
+      randstr: res.randstr
     })
-    
-    // 如果有错误码，说明是容灾票据
-    if (res.errorCode) {
-      console.warn('验证码容灾票据:', res.ticket)
-    }
-    
     hideCaptcha()
   } else if (res.ret === 2) {
     // 用户主动关闭验证码
-    console.log('用户关闭验证码')
     emit('cancel')
     hideCaptcha()
   } else {
     // 其他错误
-    console.error('验证码验证失败:', res)
     emit('error', res)
     hideCaptcha()
   }
@@ -179,13 +168,13 @@ const waitForDOMReady = async (element, maxAttempts = 10) => {
 }
 
 // 验证码加载错误处理函数
-const loadErrorCallback = () => {
+const captchaLoadErrorCallback = () => {
   console.warn('验证码JS加载失败，生成容灾票据')
-  
+
   // 生成容灾票据
-  const ticket = 'trerror_1001_' + props.appId + '_' + Math.floor(new Date().getTime() / 1000)
+  const ticket = 'terror_1001_' + props.appId + '_' + Math.floor(new Date().getTime() / 1000)
   const randstr = '@' + Math.random().toString(36).substr(2)
-  
+
   captchaCallback({
     ret: 0,
     randstr: randstr,
@@ -195,85 +184,36 @@ const loadErrorCallback = () => {
   })
 }
 
-
-
-// 初始化验证码实例
-const initializeCaptcha = async () => {
-  try {
-    // 等待DOM更新完成
-    await nextTick()
-    
-    // 检查验证码容器是否存在
-    const captchaContainer = document.getElementById(props.containerId)
-    if (!captchaContainer) {
-      console.error('验证码容器不存在')
-      loadErrorCallback()
+// 加载腾讯云验证码脚本
+const loadTencentCaptchaScript = () => {
+  return new Promise((resolve, reject) => {
+    if (typeof window.TencentCaptcha !== 'undefined') {
+      resolve(window.TencentCaptcha)
       return
     }
+
+    const script = document.createElement('script')
+    script.src = props.globalMode 
+      ? 'https://turing.captcha.qcloud.com/TCaptcha.js'
+      : 'https://ssl.captcha.qq.com/TCaptcha.js'
     
-    // 清理容器内容
-    captchaContainer.innerHTML = ''
-    
-    // 动态加载验证码脚本
-    if (typeof window.TencentCaptcha === 'undefined') {
-      try {
-        const scriptSrc = props.globalMode ? '/captcha/TCaptchaGlobal.js' : '/captcha/TCaptcha.js'
-        
-        // 创建 script 标签动态加载
-        const script = document.createElement('script')
-        script.src = scriptSrc
-        script.async = true
-        
-        // 等待脚本加载完成
-        await new Promise((resolve, reject) => {
-          script.onload = resolve
-          script.onerror = reject
-          document.head.appendChild(script)
-        })
-      } catch (importError) {
-        console.error('验证码脚本加载失败:', importError)
-        loadErrorCallback()
-        return
+    script.onload = () => {
+      if (typeof window.TencentCaptcha !== 'undefined') {
+        resolve(window.TencentCaptcha)
+      } else {
+        reject(new Error('TencentCaptcha not loaded'))
       }
     }
     
-    // 检查 TencentCaptcha 是否可用
-    if (typeof window.TencentCaptcha === 'undefined') {
-      console.error('TencentCaptcha 未加载')
-      loadErrorCallback()
-      return
+    script.onerror = () => {
+      reject(new Error('Failed to load TencentCaptcha script'))
     }
     
-    // 等待DOM完全稳定并确保容器可用
-    await waitForDOMReady(captchaContainer)
-    
-    // 隐藏进度条，准备显示验证码
-    if (props.animation) {
-      showProgress.value = false
-    }
-    
-    // 创建验证码实例
-    captchaInstance.value = new window.TencentCaptcha(captchaContainer, props.appId, captchaCallback, {
-        type: props.embedMode ? 'embed' : 'popup',
-        userLanguage: "zh-cn",
-        loading: props.embedMode
-    })
-    
-    // 显示验证码
-    captchaInstance.value.show()
-    
-  } catch (error) {
-    console.error('验证码实例创建失败:', error)
-    loadErrorCallback()
-  }
+    document.head.appendChild(script)
+  })
 }
 
-// 触发验证码（保持向后兼容）
-const triggerCaptcha = async () => {
-  await initializeCaptcha()
-}
-
-// 显示验证码组件并自动触发验证码
+// 显示验证码
 const showCaptcha = async () => {
   if (!props.enabled) {
     // 如果未启用验证码，直接触发成功回调
@@ -295,7 +235,6 @@ const showCaptcha = async () => {
   }
   
   try {
-    console.log('显示验证码组件并自动触发验证码')
     isVisible.value = true
     isExecuting.value = true
     emit('show')
@@ -327,17 +266,73 @@ const showCaptcha = async () => {
       window._qcloudProgressInterval = stepInterval
     } else {
       // 不显示动画，直接初始化验证码
-      await nextTick()
-      await initializeCaptcha()
+      initializeCaptcha()
     }
     
   } catch (error) {
     console.error('验证码初始化失败:', error)
-    loadErrorCallback()
+    captchaLoadErrorCallback()
   }
 }
 
-// 隐藏验证码组件
+// 初始化验证码实例
+const initializeCaptcha = async () => {
+  try {
+    // 等待DOM更新完成
+    await nextTick()
+    
+    // 检查验证码容器是否存在
+    const captchaContainer = document.getElementById(props.containerId)
+    if (!captchaContainer) {
+      console.error('验证码容器不存在')
+      captchaLoadErrorCallback()
+      return
+    }
+    
+    // 清理容器内容
+    captchaContainer.innerHTML = ''
+    
+    // 动态加载验证码脚本
+    try {
+      await loadTencentCaptchaScript()
+    } catch (importError) {
+      console.error('验证码脚本加载失败:', importError)
+      captchaLoadErrorCallback()
+      return
+    }
+    
+    // 检查 TencentCaptcha 是否可用
+    if (typeof window.TencentCaptcha === 'undefined') {
+      console.error('TencentCaptcha 未加载')
+      captchaLoadErrorCallback()
+      return
+    }
+    
+    // 等待DOM完全稳定并确保容器可用
+    await waitForDOMReady(captchaContainer)
+    
+    // 隐藏进度条，准备显示验证码
+    if (props.animation) {
+      showProgress.value = false
+    }
+    
+    // 创建验证码实例
+    captchaInstance.value = new window.TencentCaptcha(captchaContainer, props.appId, captchaCallback, {
+        type: props.embedMode ? 'embed' : 'popup',
+        userLanguage: "zh-cn",
+        loading: props.embedMode
+    })
+    
+    // 显示验证码
+    captchaInstance.value.show()
+    
+  } catch (error) {
+    console.error('验证码实例创建失败:', error)
+    captchaLoadErrorCallback()
+  }
+}
+
+// 隐藏验证码
 const hideCaptcha = () => {
   isVisible.value = false
   isExecuting.value = false
@@ -370,9 +365,6 @@ const hideCaptcha = () => {
 
 // 监听 show prop 变化
 watch(() => props.show, (newValue) => {
-  // 确保在客户端环境中执行
-  if (typeof window === 'undefined') return
-  
   if (newValue) {
     showCaptcha()
   } else {
@@ -389,7 +381,8 @@ onUnmounted(() => {
 defineExpose({
   showCaptcha,
   hideCaptcha,
-  triggerCaptcha
+  getCaptchaTicket: () => captchaTicket.value,
+  getCaptchaRandstr: () => captchaRandstr.value
 })
 </script>
 
@@ -548,51 +541,9 @@ defineExpose({
     margin: 6px 0;
     max-width: 100%;
   }
-  
-  .captcha-header {
-    padding: 10px 12px 3px 12px;
-    gap: 8px;
-  }
-  
-  .captcha-body {
-    padding: 0 12px 4px 12px;
-  }
-  
-  .captcha-icon-wrapper {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .captcha-icon {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .captcha-title {
-    font-size: 12px;
-  }
-  
-  .captcha-subtitle {
-    font-size: 10px;
-  }
-  
-  .progress-text {
-    font-size: 11px;
-  }
 }
 
 /* ===== 深色模式适配 ===== */
-.dark {
-  .progress-text {
-    color: #69c0ff;
-  }
-  
-  .progress-bar {
-    background: rgba(24, 144, 255, 0.2);
-  }
-}
-
-/* ===== Nuxt UI 深色模式适配 ===== */
 .dark .progress-text {
   color: #69c0ff;
 }

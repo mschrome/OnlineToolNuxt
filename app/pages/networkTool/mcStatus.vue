@@ -58,7 +58,7 @@
         </div>
 
         <!-- 验证码组件 -->
-        <qCloudCaptcha 
+        <!-- <qCloudCaptcha 
           app-id="189907674"
           :show="captchaState.isVerifying"
           container-id="mc-captcha-container"
@@ -70,6 +70,14 @@
           @cancel="onCaptchaCancel"
           @error="onCaptchaError"
           @hide="onCaptchaHide"
+        /> -->
+
+          <GeetestCaptcha
+          :app-id="'28a9343fc0e14f4f4bfa5e70cea67b63'"
+          :show="captchaState.isVerifying"
+          :product="'float'"
+          :language="'zh-cn'"
+          @success="onCaptchaSuccess"
         />
 
         <!-- 服务器信息展示区域 -->
@@ -228,7 +236,7 @@
 
 <script setup>
 import {reactive, ref} from 'vue';
-import qCloudCaptcha from '~/components/qCloudCaptcha.vue';
+import GeetestCaptcha from '~/components/captcha/GeetestCaptcha.vue';
 
 const toast = useToast();
 
@@ -250,8 +258,23 @@ useHead({
 // 验证码状态
 const captchaState = reactive({
   isVerifying: false,
+  // 极验验证码字段
+  lotNumber: '',
+  captchaOutput: '',
+  passToken: '',
+  genTime: '',
+  // 腾讯云验证码字段
   ticket: '',
   randstr: '',
+  // Google reCAPTCHA 字段
+  recaptchaToken: '',
+  recaptchaAction: '',
+  // Cloudflare Turnstile 字段
+  cfToken: '',
+  // 阿里云验证码字段
+  aliyunCaptchaParam: '',
+  aliyunScene: '',
+  aliyunAppId: ''
 });
 
 
@@ -336,14 +359,19 @@ const handleCheckServer = () => {
     return;
   }
   
-  // 每次都需要验证码
+  // 触发验证码
   captchaState.isVerifying = true;
 };
 
 const getMcStatus = async () => {
   isLoading.value = true
   
+  // 清空之前的服务器信息
   serverInfo.favicon = '';
+  serverInfo.status = -1;
+  serverInfo.description = '';
+  serverInfo.version = { name: '', protocol: 0 };
+  serverInfo.players = { max: 0, online: 0, sample: [] };
   
   // 构建请求参数
   const requestParams = {
@@ -351,31 +379,117 @@ const getMcStatus = async () => {
     serverType: workMode.value,
   };
   
-  // 如果有验证码票据，添加到请求参数中
-  if (captchaState.ticket && captchaState.randstr) {
-    requestParams.captchaTicket = captchaState.ticket;
-    requestParams.captchaRandstr = captchaState.randstr;
+  // 构建请求头，将验证码数据放到 header 中
+  const headers = {};
+  
+  // 极验验证码
+  if (captchaState.lotNumber && captchaState.captchaOutput) {
+    headers['X-Captcha-Lot-Number'] = captchaState.lotNumber;
+    headers['X-Captcha-Output'] = captchaState.captchaOutput;
+    headers['X-Captcha-Pass-Token'] = captchaState.passToken;
+    headers['X-Captcha-Gen-Time'] = captchaState.genTime;
+    console.log('发送请求，包含极验验证码 Header');
+  }
+  // 腾讯云验证码
+  else if (captchaState.ticket && captchaState.randstr) {
+    headers['X-Captcha-Ticket'] = captchaState.ticket;
+    headers['X-Captcha-Randstr'] = captchaState.randstr;
+    console.log('发送请求，包含腾讯云验证码 Header');
+  }
+  // Google reCAPTCHA
+  else if (captchaState.recaptchaToken) {
+    headers['X-Captcha-Token'] = captchaState.recaptchaToken;
+    if (captchaState.recaptchaAction) {
+      headers['X-Captcha-Action'] = captchaState.recaptchaAction;
+    }
+    console.log('发送请求，包含 Google reCAPTCHA Header');
+  }
+  // Cloudflare Turnstile
+  else if (captchaState.cfToken) {
+    headers['X-Captcha-Token'] = captchaState.cfToken;
+    console.log('发送请求，包含 Cloudflare Turnstile Header');
+  }
+  // 阿里云验证码
+  else if (captchaState.aliyunCaptchaParam) {
+    headers['X-Captcha-Param'] = captchaState.aliyunCaptchaParam;
+    if (captchaState.aliyunScene) {
+      headers['X-Captcha-Scene'] = captchaState.aliyunScene;
+    }
+    if (captchaState.aliyunAppId) {
+      headers['X-Captcha-App-Id'] = captchaState.aliyunAppId;
+    }
+    console.log('发送请求，包含阿里云验证码 Header');
   }
   
-  let {status, message} = await $fetch('/api/mcStatus', {
+  let result = await $fetch('/api/mcStatus', {
     method: 'GET',
     params: requestParams,
+    headers: headers,
   }).catch((error)=>{
     console.error('MC状态检测失败:', error);
+    
+    // 根据错误类型显示不同的提示信息
+    let errorTitle = '请求失败';
+    let errorDescription = '操作过于频繁，请等会再试试';
+    
+    if (error.statusCode === 400) {
+      // 验证码验证失败或其他业务错误
+      errorTitle = '验证失败';
+      errorDescription = error.statusMessage || error.data?.message || '请完成验证码验证';
+    } else if (error.statusCode === 500) {
+      errorTitle = '服务器错误';
+      errorDescription = '服务器处理请求时出错，请稍后重试';
+    }
+    
     toast.add({
       id: 'Module Error',
-      title: '当前不可用',
-      description:
-          '操作过于频繁，请等会再试试',
+      title: errorTitle,
+      description: errorDescription,
       icon: 'i-heroicons-face-frown-20-solid',
       timeout: 5000,
     });
+    
+    // 如果是验证码验证失败，需要重新验证
+    if (error.statusCode === 400 && error.statusMessage?.includes('验证码')) {
+      captchaState.isVerifying = true;
+    }
+    
+    return null; // 返回 null 以便后续判断
   }).finally(()=>{
     isLoading.value = false;
-    // 清空验证码票据
+    // 清空所有验证码数据
+    captchaState.lotNumber = '';
+    captchaState.captchaOutput = '';
+    captchaState.passToken = '';
+    captchaState.genTime = '';
     captchaState.ticket = '';
     captchaState.randstr = '';
+    captchaState.recaptchaToken = '';
+    captchaState.recaptchaAction = '';
+    captchaState.cfToken = '';
+    captchaState.aliyunCaptchaParam = '';
+    captchaState.aliyunScene = '';
+    captchaState.aliyunAppId = '';
   });
+  
+  // 检查是否有返回结果（catch 中返回了 null）
+  if (!result) {
+    return;
+  }
+  
+  const {status, message} = result;
+  
+  // 检查是否检测失败
+  if (status === '0' || status === 0) {
+    toast.add({
+      id: 'MC Status Error',
+      title: '检测失败',
+      description: typeof message === 'string' ? message : '无法连接到该服务器，请检查服务器地址是否正确或服务器是否在线',
+      icon: 'i-heroicons-exclamation-circle-20-solid',
+      timeout: 5000,
+    });
+    return;
+  }
   
   if (status !== undefined && message !== undefined) {
     Object.assign(serverInfo, message);
@@ -393,6 +507,15 @@ const getMcStatus = async () => {
     } else {
       serverInfo.description = "<span>服务器信息抓取失败，请检查服务器是否在线</span>"
     }
+    
+    // 检测成功，显示成功提示
+    toast.add({
+      id: 'MC Status Success',
+      title: '检测成功',
+      description: `成功获取服务器信息：${serverInfo.players?.online || 0}/${serverInfo.players?.max || 0} 在线`,
+      icon: 'i-heroicons-check-circle-20-solid',
+      timeout: 3000,
+    });
   }
 };
 
@@ -409,8 +532,42 @@ const handleClickInfo = () => {
 
 // 验证码组件事件处理
 const onCaptchaSuccess = (data) => {
-  captchaState.ticket = data.ticket;
-  captchaState.randstr = data.randstr;
+  console.log('验证码验证成功，收到数据:', data);
+  
+  // 根据不同的验证码类型处理回调数据
+  // 极验验证码
+  if (data.lotNumber && data.captchaOutput) {
+    captchaState.lotNumber = data.lotNumber;
+    captchaState.captchaOutput = data.captchaOutput;
+    captchaState.passToken = data.passToken;
+    captchaState.genTime = data.genTime;
+    console.log('极验验证码状态已更新');
+  }
+  // 腾讯云验证码
+  else if (data.ticket && data.randstr) {
+    captchaState.ticket = data.ticket;
+    captchaState.randstr = data.randstr;
+    console.log('腾讯云验证码状态已更新');
+  }
+  // Google reCAPTCHA
+  else if (data.token && (data.version === 'v2' || data.version === 'v3')) {
+    captchaState.recaptchaToken = data.token;
+    captchaState.recaptchaAction = data.action || 'verify';
+    console.log('Google reCAPTCHA 状态已更新');
+  }
+  // Cloudflare Turnstile
+  else if (data.token && !data.version) {
+    captchaState.cfToken = data.token;
+    console.log('Cloudflare Turnstile 状态已更新');
+  }
+  // 阿里云验证码
+  else if (data.captchaParam) {
+    captchaState.aliyunCaptchaParam = data.captchaParam;
+    captchaState.aliyunScene = data.scene || '';
+    captchaState.aliyunAppId = data.appId || '';
+    console.log('阿里云验证码状态已更新');
+  }
+  
   captchaState.isVerifying = false;
   
   toast.add({
@@ -471,9 +628,19 @@ const handleReset = () => {
   workMode.value = 'Java';
   checkFull.value = '';
   
-  // 重置验证码状态
+  // 重置所有验证码状态
+  captchaState.lotNumber = '';
+  captchaState.captchaOutput = '';
+  captchaState.passToken = '';
+  captchaState.genTime = '';
   captchaState.ticket = '';
   captchaState.randstr = '';
+  captchaState.recaptchaToken = '';
+  captchaState.recaptchaAction = '';
+  captchaState.cfToken = '';
+  captchaState.aliyunCaptchaParam = '';
+  captchaState.aliyunScene = '';
+  captchaState.aliyunAppId = '';
   captchaState.isVerifying = false;
 };
 
