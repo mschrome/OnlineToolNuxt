@@ -20,7 +20,7 @@
     "@popperjs/core": "^2.11.8",
     "@unhead/vue": "^2.0.3",
     "better-sqlite3": "^12.2.0",
-    "chinese-days": "^1.5.1",
+    "chinese-days": "^1.5.4",
     "clipboard": "^2.0.11",
     "cnchar": "^3.2.6",
     "cnchar-idiom": "^3.2.6",

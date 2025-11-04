@@ -3540,10 +3540,10 @@ chevrotain@~11.0.3:
     "@chevrotain/utils" "11.0.3"
     lodash-es "4.17.21"
 
-chinese-days@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/chinese-days/-/chinese-days-1.5.1.tgz#634dd0955aa2cbaa596bf2d8c8286ad199f2f8c2"
-  integrity sha512-tMwllz6674sN9z/PexawTu7Ypiba0X7X4Qs8gvuZl+CIjyYrl8jOuYZQwAtPyjPNqwTwE2GqSSPJK218crbCWg==
+chinese-days@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/chinese-days/-/chinese-days-1.5.4.tgz#1a07a71643648e1611cacb7f4881b791eb7c4a0d"
+  integrity sha512-YAj/f4UhzNm7F5SbeyhVPZbS5gdGNcsaNy4TqIzknx5/fql0bHU+OY3wJEw75lMhfsZRQUCTvBNu88rcMoswmw==
 
 chokidar@^3.6.0:
   version "3.6.0"
